@@ -22,10 +22,9 @@ class _ScreenhomeState extends State<ScreenHome> {
               leading: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.green,
-                backgroundImage:
-                    NetworkImage('https://picsum.photos/250?image=9'),
+                backgroundImage: AssetImage('assets/images/ambadi.png'),
               ),
-              trailing: Text('10:0$index PM'),
+              trailing: Text('10:0$index AM'),
             );
           },
           separatorBuilder: (ctx, index) {
