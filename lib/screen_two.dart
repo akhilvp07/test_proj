@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ScreenTwo extends StatelessWidget {
-  const ScreenTwo({Key? key}) : super(key: key);
+  final String name;
+
+  const ScreenTwo({Key? key, required this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Screen 2'),
+        title: Text(name),
       ),
       body: SafeArea(
         child: Column(

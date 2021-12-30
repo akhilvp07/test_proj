@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_proj/screen_two.dart';
 
 class ScreenOne extends StatelessWidget {
   const ScreenOne({Key? key}) : super(key: key);
@@ -10,21 +11,27 @@ class ScreenOne extends StatelessWidget {
         title: Text('Screen 1'),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Text('Text on Screen 1'),
-            ElevatedButton(
-              onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (ctx) {
-                //     return ScreenTwo();
-                //   },
-                // ));
-                Navigator.of(context).pushNamed('screen2');
+        child: ListView.separated(
+          itemBuilder: (ctx, index) {
+            return ListTile(
+              title: Text('Person $index'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) {
+                      return ScreenTwo(
+                        name: 'Person $index',
+                      );
+                    },
+                  ),
+                );
               },
-              child: Text('Go to Screen 2'),
-            )
-          ],
+            );
+          },
+          separatorBuilder: (ctx, index) {
+            return Divider();
+          },
+          itemCount: 30,
         ),
       ),
     );
