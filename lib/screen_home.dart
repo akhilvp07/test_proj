@@ -22,7 +22,9 @@ class _ScreenhomeState extends State<ScreenHome> {
               leading: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.green,
-                backgroundImage: AssetImage('assets/images/ambadi.png'),
+//                backgroundImage: AssetImage('assets/images/ambadi.png'),
+                backgroundImage: NetworkImage(
+                    'https://www.shareicon.net/data/128x128/2015/09/18/103100_anonymous_512x512.png'),
               ),
               trailing: Text('10:0$index AM'),
             );
