@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_proj/screen_one.dart';
+import 'package:test_proj/screen_splash.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: ScreenOne(),
+      home: Splash(),
       // routes: {
       //   'screen1': (ctx) {
       //     return ScreenOne();
