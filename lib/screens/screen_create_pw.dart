@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:test_proj/screen_one.dart';
+import 'package:test_proj/screens/screen_login.dart';
 
 class ScreenCreatePw extends StatelessWidget {
   ScreenCreatePw({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class ScreenCreatePw extends StatelessWidget {
     await sharedPref.setString('saved_value', _textController.text);
     print('Saved ' + _textController.text);
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-      return ScreenOne();
+      return ScreenLogin();
     }));
   }
 }
