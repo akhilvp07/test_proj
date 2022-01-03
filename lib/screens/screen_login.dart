@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test_proj/screens/screen_create_pw.dart';
-import 'package:test_proj/screens/screen_content.dart';
+import 'package:test_proj/screens/screen_home.dart';
 
 class ScreenLogin extends StatelessWidget {
   ScreenLogin({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class ScreenLogin extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  getSaveddData(context);
+                  checkLogin(context);
                 },
                 child: Text('Login'),
               )
@@ -57,7 +57,7 @@ class ScreenLogin extends StatelessWidget {
     );
   }
 
-  Future<void> getSaveddData(BuildContext context) async {
+  Future<void> checkLogin(BuildContext context) async {
     final sharedPref = await SharedPreferences.getInstance();
     //Get saved value
     final savedValue = sharedPref.getString('saved_value');
@@ -65,8 +65,8 @@ class ScreenLogin extends StatelessWidget {
     if (savedValue != null) {
       if (_passwordController.text == savedValue) {
         print('Login Success');
-        Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-          return ScreenContent();
+        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
+          return ScreenHome();
         }));
       } else {
         Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {

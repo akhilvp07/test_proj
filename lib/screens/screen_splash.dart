@@ -13,7 +13,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    gotoLogin();
+    checkLogin();
     super.initState();
   }
 
@@ -27,18 +27,22 @@ class _SplashState extends State<Splash> {
   }
 
   Future<void> gotoLogin() async {
+    await Future.delayed(Duration(seconds: 1));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
+      return ScreenLogin();
+    }));
+  }
+
+  Future<void> checkLogin() async {
     final sharedPref = await SharedPreferences.getInstance();
     final password = sharedPref.getString('saved_value');
 
-    await Future.delayed(Duration(seconds: 1));
     //Check for saved password
     if (password != null) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-        return ScreenLogin();
-      }));
+      gotoLogin();
     } else {
       //No saved password found
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
         return ScreenCreatePw();
       }));
     }

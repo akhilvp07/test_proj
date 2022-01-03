@@ -35,7 +35,7 @@ class ScreenCreatePw extends StatelessWidget {
     //Save value
     await sharedPref.setString('saved_value', _textController.text);
     print('Saved ' + _textController.text);
-    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx) {
       return ScreenLogin();
     }));
   }
