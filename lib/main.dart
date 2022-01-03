@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_proj/screen_home.dart';
+import 'package:test_proj/screens/screen_splash.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          primarySwatch: Colors.purple,
-        ),
-        home: ScreenHome());
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: Splash(),
+    );
   }
 }
